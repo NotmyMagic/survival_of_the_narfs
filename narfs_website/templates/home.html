@@ -1,5 +1,83 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 
-<h1>homepage</h1>
-{% endblock %}
+<h1 align="center">Survival of the Narfs</h1>
+<form method="POST">
+  <div class="bg-secondary rounded" align="center">
+    <h2>Choose your Narf's height.</h2>
+    <input type="radio" , id="tall" , name="height" , value="Tall" required />
+    <label for="tall">Tall, slender, and fast</label>
+    <input type="radio" , id="short" , name="height" , value="Short" required />
+    <label for="Short">Short, chubby, and slow</label>
+  </div>
+
+  <br />
+  <div class="bg-secondary rounded" align="center">
+    <h2>Choose your Narf's fur color.</h2>
+    <input type="radio" id="green" name="color" value="Green" required />
+    <label for="Green">Green</label>
+    <input type="radio" id="blue" name="color" value="Blue" required />
+    <label for="Blue">Blue</label>
+  </div>
+
+  <br />
+  <div class="bg-secondary rounded" align="center">
+    <h2>Choose your Narf's claws.</h2>
+    <input type="radio" id="strong" name="claws" value="Strong" required />
+    <label for="Strong">Short and Strong</label>
+    <input type="radio" id="slender" name="claws" value="Slender" required />
+    <label for="Slender">Long and slender</label>
+  </div>
+
+  <br />
+  <div class="bg-secondary rounded" align="center">
+    <h2>Choose your Narf's teeth.</h2>
+    <input type="radio" id="sharp" name="teeth" value="Sharp" required />
+    <label for="Sharp">Long and sharp</label>
+    <input type="radio" id="dull" name="teeth" value="Dull" required />
+    <label for="Dull">Wide and dull</label>
+  </div>
+
+  <br />
+  <div class="bg-secondary rounded" align="center">
+    <h2>Choose your Narf's Fur Thickness.</h2>
+    <input type="radio" id="thick" name="fur" value="Thick" required />
+    <label for="Thick">Very thick</label>
+    <input type="radio" id="thin" name="fur" value="Thin" required />
+    <label for="Thin">Thin</label>
+  </div>
+
+  <br />
+  <div class="bg-secondary rounded" align="center">
+    <h2>Why did you choose the traits that you chose?</h2>
+    <input
+      type="text"
+      placeholder="Traits"
+      class="form-control w-75"
+      required
+    />
+    <br />
+  </div>
+
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary bg-secondary border-dark">
+      Create Narf
+    </button>
+  </div>
+</form>
+<br />
+<br />
+{% for narf in user.narfs %}
+<div class="bg-secondary">
+  <button type="button" class="close" onClick="deleteNote({{ narf.id }})">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <p>{{ narf.height }}</p>
+  <p>{{ narf.color }}</p>
+  <p>{{ narf.claws }}</p>
+  <p>{{ narf.teeth }}</p>
+  <p>{{ narf.fur }}</p>
+</div>
+<br />
+{% endfor %} {% endblock %} dull
